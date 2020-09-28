@@ -21,7 +21,7 @@
 #theme
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
-locale                   : "zh-CHS"
+locale                   : "zh-CN"
 title                    : "向往自由，无拘无束"
 #email                   : 1476211809@qq.com
 description              : "真正的自由，只存在于童话和思想。现实不是童话，唯一自由的只有天马行空的思想"
@@ -30,11 +30,12 @@ name                     : "FlyingMcDonald"
 baseurl: "" # the subpath of your site, e.g. /blog
 repository               : "FlyingMcDonald/flyingmcdonald.github.io"
 logo                     : ""
-url: "https://flyingmcdonald.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url                      : "https://flyingmcdonald.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username          : "FlyingMcDonald"
 teaser                   : "/assets/images/500x300.png"
 breadcrumbs              : true  # disabled by default
+permalink                : /:categories/:title/
 # Build settings
 theme: minimal-mistakes-jekyll
 
@@ -45,6 +46,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-archives
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -53,15 +55,34 @@ whitelist:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-archives
 
+
+
+category_archive:
+  type: jekyll-archives
+  path: /categories/
+tag_archive:
+  type: jekyll-archives
+  path: /tags/
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive-taxonomy
+    tag: archive-taxonomy
+  permalinks:
+      category: /categories/:name/
+      tag: /tags/:name/
 
 # Site Author
 author:
   name             : "FlyingMcDonald"
-  avatar           : "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/avatar.png"
   bio              : "空想症患者，白日梦玩家，年轻的老人"
   location         : "China JiangXi"
-  email            : ""
+  email            : "1476211809@qq.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -108,10 +129,20 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
-      author_profile: true
+      layout: posts
+      author_profile: false
       read_time: true
       comments: true
       share: true
       related: true
       show_date: true
+  - scope:
+      path: ""
+      type: tag
+    values:
+      author_profile: true
+  - scope:
+      path: ""
+      type: category
+    values:
+      comment: false
