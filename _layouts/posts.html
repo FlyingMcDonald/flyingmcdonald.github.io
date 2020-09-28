@@ -28,18 +28,3 @@ layout: archive
     <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
   </section>
 {% endfor %}
-
-<div id="gitmentContainer"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-    owner: 'FlyingMcDonald',
-    repo: 'https://github.com/FlyingMcDonald/flyingmcdonald.github.io',
-    oauth: {
-        client_id: '765d7c27909606aedba3',
-        client_secret: '258acc6e0759f612a4cd7a0d24391bfc676febeb',
-    },
-});
-gitment.render('gitmentContainer');
-</script>

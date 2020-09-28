@@ -36,6 +36,8 @@ github_username          : "FlyingMcDonald"
 teaser                   : "/assets/images/500x300.png"
 breadcrumbs              : true  # disabled by default
 permalink                : /:categories/:title/
+search                   : true
+
 # Build settings
 theme: minimal-mistakes-jekyll
 
@@ -76,6 +78,18 @@ jekyll-archives:
       category: /categories/:name/
       tag: /tags/:name/
 
+search_provider: algolia
+algolia:
+  application_id: BYCKXC9AEM # YOUR_APPLICATION_ID
+  index_name: jekyll # YOUR_INDEX_NAME
+  search_only_api_key: e747a695c4313c29582026a24b54b286 # YOUR_SEARCH_ONLY_API_KEY
+  powered_by: true # true (default), false
+
+
+# gitment
+comment_gitment_repo: 'https://github.com/FlyingMcDonald/flyingmcdonald.github.io'
+comment_gitment_clientId: '765d7c27909606aedba3'
+comment_gitment_clientSecret: '258acc6e0759f612a4cd7a0d24391bfc676febeb'
 # Site Author
 author:
   name             : "FlyingMcDonald"
@@ -129,12 +143,12 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: posts
-      author_profile: false
+      layout: single
+      author_profile: true
       read_time: true
       comments: true
-      share: true
-      related: true
+      share: false
+      related: false
       show_date: true
   - scope:
       path: ""
@@ -145,4 +159,12 @@ defaults:
       path: ""
       type: category
     values:
-      comment: false
+      comment: true
+
+comments:
+  provider: "valine"
+  valine:
+    enable: true
+    leancloud_appid: AXH0POMGUJopTz631mmeAiey-gzGzoHsz
+    leancloud_appkey: SOhroxKE0juvchItsMCvfKJn
+    placeholder: ""
